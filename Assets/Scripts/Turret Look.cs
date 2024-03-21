@@ -1,13 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretLook : MonoBehaviour
 {
+    [Header("Attributes")]
     public float range = 12f;
     public float turnSpeed = 10f;
-    public string enemyTag = "Enemy";
+    public float fireRate = 1f;
 
+    [Header("Setup Fields")]
+    public string enemyTag = "Enemy";
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
+
+    private float fireCountdown;
     private Transform target;
     void Start()
     {
@@ -17,7 +22,9 @@ public class TurretLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(target == null)
+        fireCountdown -= Time.deltaTime;
+
+        if (target == null)
         {
             return;
         }
@@ -27,6 +34,25 @@ public class TurretLook : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
 
         transform.rotation = Quaternion.Euler(0f,rotation.y,0f);
+
+        if(fireCountdown <= 0f)
+        {
+            Shoot();
+            fireCountdown = 1 / fireRate;
+        }
+    }
+
+    void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+
+        if(bulletScript == null)
+        {
+            return;
+        }
+
+        bulletScript.Seek(target);
     }
 
     private void OnDrawGizmosSelected()
