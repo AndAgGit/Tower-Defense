@@ -4,6 +4,10 @@ public class CameraMove : MonoBehaviour
 {
     [Header("Panning")]
     public float panSpeed = 30f;
+    public float minX = 0f;
+    public float maxX = 76.5f;
+    public float maxZ = 0f;
+    public float minZ = -90f;
 
 
     [Header("Zooming")]
@@ -57,6 +61,10 @@ public class CameraMove : MonoBehaviour
 
         pos.y -= scroll * 1000 * zoomSpeed * Time.deltaTime;
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
+
+        pos.x = Mathf.Clamp(pos.x, minX, maxX);
+
+        pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
 
         transform.position = pos;
     }
