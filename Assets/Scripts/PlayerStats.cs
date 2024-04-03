@@ -11,4 +11,9 @@ public class PlayerStats : MonoBehaviour
     {
         money = startMoney;
     }
+
+    public static int GetMoney()
+    {
+        return money;
+    }
 }

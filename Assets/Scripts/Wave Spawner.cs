@@ -1,9 +1,10 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public float timeBetweenWaves = 5f;
+    public float timeBetweenWaves = 10f;
     public float timeBetweenEnemies = 0.25f;
     public GameObject enemyPrefab;
     public Transform spawnPoint;
@@ -13,6 +14,8 @@ public class WaveSpawner : MonoBehaviour
     void Update()
     {
         countdown -= Time.deltaTime;
+        countdown = Mathf.Clamp(countdown, -1f, Mathf.Infinity);
+        
 
         if (countdown <= -1f)
         {
@@ -53,5 +56,10 @@ public class WaveSpawner : MonoBehaviour
     public static float GetCountdown()
     {
         return countdown;
+    }
+
+    public static float GetCountdownCiel()
+    {
+        return Mathf.Ceil(WaveSpawner.GetCountdown());
     }
 }

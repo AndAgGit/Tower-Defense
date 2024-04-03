@@ -6,6 +6,8 @@ public class Node : MonoBehaviour
     public Color hoverColor;
     public Color tooPoorColor;
     public Vector3 offset;
+    public GameObject buildEffect;
+
     [Header("Optional")]
     public GameObject turret;
 
@@ -40,6 +42,8 @@ public class Node : MonoBehaviour
         }
 
         buildManager.BuildTurretOn(this);
+        GameObject effect = Instantiate(buildEffect, GetBuildPos(), Quaternion.identity);
+        Destroy(effect, 3);
     }
 
     private void OnMouseEnter()

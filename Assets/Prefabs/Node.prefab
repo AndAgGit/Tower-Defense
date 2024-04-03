@@ -121,4 +121,5 @@ MonoBehaviour:
   hoverColor: {r: 0.6431373, g: 1, b: 0.6447694, a: 0}
   tooPoorColor: {r: 1, g: 0.6431373, b: 0.6431373, a: 0}
   offset: {x: 0, y: 0.5, z: 0}
+  buildEffect: {fileID: 1916479565014678022, guid: 8a15d142cb6868c488cf63bb5c6bf3b0, type: 3}
   turret: {fileID: 0}
