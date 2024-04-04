@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4123536230254742585}
   - component: {fileID: 42306380958883379}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Range Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   explosionRadius: 0
-  damage: 5
-  bulletHitEffect: {fileID: 6440764406127722517, guid: 8318e17a612bcbf45a8a8bcee524a6fc, type: 3}
+  damage: 20
+  bulletHitEffect: {fileID: 6440764406127722517, guid: c83c34e0dffb85f47bbeca02e474e996, type: 3}
 --- !u!96 &42306380958883379
 TrailRenderer:
   serializedVersion: 3
@@ -174,18 +174,18 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 0, a: 1}
+      key0: {r: 0.4223243, g: 1, b: 0, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 1, g: 1, b: 1, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 1, g: 0, b: 0, a: 0}
+      key3: {r: 1, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 13107
       ctime1: 52428
-      ctime2: 65535
-      ctime3: 0
+      ctime2: 0
+      ctime3: 65535
       ctime4: 0
       ctime5: 0
       ctime6: 0
