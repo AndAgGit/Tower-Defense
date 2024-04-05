@@ -12,7 +12,9 @@ public class TurretLook : MonoBehaviour
     public Transform bulletSpawn;
 
     [Header("Use Laser")]
+    public int dps = 30;
     public bool useLaser = false;
+    public float slowPct = 0.5f;
     public LineRenderer lineRenderer;
     public ParticleSystem laserParticles;
     public Light laserGlowLight;
@@ -25,6 +27,7 @@ public class TurretLook : MonoBehaviour
 
     
     private Transform target;
+    private Enemy enemy;
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -61,6 +64,9 @@ public class TurretLook : MonoBehaviour
 
     void Laser()
     {
+        enemy.TakeDamage(dps * Time.deltaTime);
+        enemy.SpeedMod(slowPct);
+
         if (!lineRenderer.enabled)
         {
             lineRenderer.enabled = true;
@@ -137,5 +143,6 @@ public class TurretLook : MonoBehaviour
         }
 
         target = nearestEnemy.transform;
+        enemy = target.GetComponent<Enemy>();
     }
 }
