@@ -25,6 +25,11 @@ public class CameraMove : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.gameIsOver)
+        {
+            this.enabled = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             canMove = !canMove;
