@@ -2,17 +2,28 @@ using UnityEngine;
 
 public class TurretLook : MonoBehaviour
 {
-    [Header("Attributes")]
+    [Header("General")]
     public float range = 12f;
-    public float turnSpeed = 10f;
+    
+    [Header("Use Bullets")]
     public float fireRate = 1f;
-
-    [Header("Setup Fields")]
-    public string enemyTag = "Enemy";
+    private float fireCountdown;
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
 
-    private float fireCountdown;
+    [Header("Use Laser")]
+    public bool useLaser = false;
+    public LineRenderer lineRenderer;
+    public ParticleSystem laserParticles;
+    public Light laserGlowLight;
+
+    [Header("Setup Fields")]
+    public float turnSpeed = 10f;
+    public string enemyTag = "Enemy";
+    public LayerMask layerMask;
+    
+
+    
     private Transform target;
     void Start()
     {
@@ -26,20 +37,52 @@ public class TurretLook : MonoBehaviour
 
         if (target == null)
         {
+            if (useLaser)
+            {
+                lineRenderer.enabled = false;
+                laserParticles.Stop();
+                laserGlowLight.enabled = false;
+            }
             return;
         }
 
-        Vector3 dir = target.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        LockOnTarget();
 
-        transform.rotation = Quaternion.Euler(0f,rotation.y,0f);
-
-        if(fireCountdown <= 0f)
+        if (useLaser)
+        {
+            Laser();
+        }
+        else if(fireCountdown <= 0f)
         {
             Shoot();
             fireCountdown = 1 / fireRate;
         }
+    }
+
+    void Laser()
+    {
+        if (!lineRenderer.enabled)
+        {
+            lineRenderer.enabled = true;
+            laserParticles.Play();
+            laserGlowLight.enabled = true;
+        }
+        
+
+        lineRenderer.SetPosition(0, bulletSpawn.position);
+        lineRenderer.SetPosition(1, target.position);
+
+        laserParticles.transform.position = target.position;
+        laserParticles.transform.LookAt(bulletSpawn);
+        laserParticles.transform.position += laserParticles.transform.forward * 1f;
+    }
+
+    void LockOnTarget()
+    {
+        Vector3 dir = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
     void Shoot()
@@ -83,11 +126,13 @@ public class TurretLook : MonoBehaviour
 
         if(nearestEnemy == null)
         {
+            target = null;
             return;
         }
 
         if(shortestDist > range)
         {
+            target = null;
             return;
         }
 
