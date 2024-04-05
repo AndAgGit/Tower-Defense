@@ -34,7 +34,7 @@ public class Shop : MonoBehaviour
         buildManager.SelectTurretToBuild(missile);
     }
 
-    public void PurchaseLaserTurret()
+    public void SelectLaserTurret()
     {
         Debug.Log("Laser Turret Selected");
         buildManager.SelectTurretToBuild(laser);
