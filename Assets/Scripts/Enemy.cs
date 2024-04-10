@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
         Destroy(effect, 5);
         Destroy(gameObject);
         PlayerStats.money += value;
+        WaveSpawner.enemiesAlive--;
     }
 
     public void SpeedMod(float percentage)

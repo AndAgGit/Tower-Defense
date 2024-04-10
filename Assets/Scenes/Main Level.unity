@@ -1873,7 +1873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5370897479658681224, guid: cebe5bfcf0812a340a3b60ee85f8ce32, type: 3}
       propertyPath: m_text
-      value: $50
+      value: $75
       objectReference: {fileID: 0}
     - target: {fileID: 5370897479658681224, guid: cebe5bfcf0812a340a3b60ee85f8ce32, type: 3}
       propertyPath: m_fontSize
@@ -8227,7 +8227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5370897479658681224, guid: cebe5bfcf0812a340a3b60ee85f8ce32, type: 3}
       propertyPath: m_text
-      value: $15
+      value: $30
       objectReference: {fileID: 0}
     - target: {fileID: 5370897479658681224, guid: cebe5bfcf0812a340a3b60ee85f8ce32, type: 3}
       propertyPath: m_fontSize
@@ -8641,24 +8641,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standard:
     prefab: {fileID: 7416044399297063819, guid: 7b960a78ab438c04c8260934e75f3728, type: 3}
-    cost: 10
+    cost: 15
     upgradedPrefab: {fileID: 7416044399297063819, guid: 5a58edd462f816e4ca8dbe13f5ca3dc4, type: 3}
-    upgradeCost: 15
+    upgradeCost: 10
   range:
     prefab: {fileID: 7416044399297063819, guid: d7989d193b141cb45a99de96da91ecdf, type: 3}
-    cost: 20
+    cost: 30
     upgradedPrefab: {fileID: 7416044399297063819, guid: ba8013a2a49a26446b3acf6647943f1c, type: 3}
-    upgradeCost: 30
+    upgradeCost: 20
   missile:
     prefab: {fileID: 3987209086763447793, guid: 39122e950d53f8a4d8d1c1e338d23d04, type: 3}
-    cost: 30
+    cost: 45
     upgradedPrefab: {fileID: 3987209086763447793, guid: d8b671ad63bdb624689670c54022baa9, type: 3}
-    upgradeCost: 45
+    upgradeCost: 30
   laser:
     prefab: {fileID: 7880783352968249816, guid: a58f4c30fdbb7fa47b00ac185dac60a7, type: 3}
-    cost: 50
+    cost: 75
     upgradedPrefab: {fileID: 7880783352968249816, guid: bc2bd8593f07a25428aa76ecf227111d, type: 3}
-    upgradeCost: 75
+    upgradeCost: 50
 --- !u!1001 &572158885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16086,7 +16086,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5370897479658681224, guid: cebe5bfcf0812a340a3b60ee85f8ce32, type: 3}
       propertyPath: m_text
-      value: $30
+      value: '$45
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 5370897479658681224, guid: cebe5bfcf0812a340a3b60ee85f8ce32, type: 3}
       propertyPath: m_fontSize
@@ -18233,10 +18235,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb4fe8de83b81d41b7177bc9a32fda7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenWaves: 10
-  timeBetweenEnemies: 0.5
-  enemyPrefab: {fileID: 8610068105627121444, guid: cb6110268ea4160448af3dac8a8ffad3, type: 3}
+  timeBetweenWaves: 5
   spawnPoint: {fileID: 133954522}
+  waves:
+  - enemyPrefab: {fileID: 8610068105627121444, guid: cb6110268ea4160448af3dac8a8ffad3, type: 3}
+    numToSpawn: 10
+    spawnRatePerSecond: 1
+  - enemyPrefab: {fileID: 8610068105627121444, guid: cb6110268ea4160448af3dac8a8ffad3, type: 3}
+    numToSpawn: 20
+    spawnRatePerSecond: 2
+  - enemyPrefab: {fileID: 8610068105627121444, guid: cb6110268ea4160448af3dac8a8ffad3, type: 3}
+    numToSpawn: 20
+    spawnRatePerSecond: 4
+  - enemyPrefab: {fileID: 8610068105627121444, guid: 983609679113ca84393a64aa372ec7b7, type: 3}
+    numToSpawn: 3
+    spawnRatePerSecond: 1
+  - enemyPrefab: {fileID: 8610068105627121444, guid: 97372f7173968d245a496a229bf9aaf7, type: 3}
+    numToSpawn: 5
+    spawnRatePerSecond: 1
+  - enemyPrefab: {fileID: 8610068105627121444, guid: 983609679113ca84393a64aa372ec7b7, type: 3}
+    numToSpawn: 6
+    spawnRatePerSecond: 2
+  - enemyPrefab: {fileID: 8610068105627121444, guid: 97372f7173968d245a496a229bf9aaf7, type: 3}
+    numToSpawn: 10
+    spawnRatePerSecond: 2
+  - enemyPrefab: {fileID: 8610068105627121444, guid: 97372f7173968d245a496a229bf9aaf7, type: 3}
+    numToSpawn: 20
+    spawnRatePerSecond: 2
+  - enemyPrefab: {fileID: 8610068105627121444, guid: 983609679113ca84393a64aa372ec7b7, type: 3}
+    numToSpawn: 15
+    spawnRatePerSecond: 3
+  - enemyPrefab: {fileID: 8610068105627121444, guid: cb6110268ea4160448af3dac8a8ffad3, type: 3}
+    numToSpawn: 50
+    spawnRatePerSecond: 5
 --- !u!4 &1365210139
 Transform:
   m_ObjectHideFlags: 0
@@ -18281,8 +18312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845956f4d020f5b4bb2d743f91c54406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 1000
-  startLives: 1
+  startMoney: 40
+  startLives: 10
 --- !u!114 &1365210142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27478,7 +27509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5370897479658681224, guid: cebe5bfcf0812a340a3b60ee85f8ce32, type: 3}
       propertyPath: m_text
-      value: $10
+      value: $15
       objectReference: {fileID: 0}
     - target: {fileID: 5370897479658681224, guid: cebe5bfcf0812a340a3b60ee85f8ce32, type: 3}
       propertyPath: m_fontSize
