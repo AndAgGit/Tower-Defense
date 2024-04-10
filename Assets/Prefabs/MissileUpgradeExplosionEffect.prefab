@@ -5025,7 +5025,7 @@ GameObject:
   - component: {fileID: 4922446988813570627}
   - component: {fileID: 5755931793568548764}
   m_Layer: 0
-  m_Name: Missile Explosion Effect
+  m_Name: MissileUpgradeExplosionEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5184,8 +5184,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 12
-      minScalar: 7
+      scalar: 15
+      minScalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5766,7 +5766,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 2
+      value: 4
       mode: 0
       spread: 0
       speed:
@@ -5996,7 +5996,7 @@ ParticleSystem:
         serializedVersion: 2
         minMaxState: 3
         scalar: 30
-        minScalar: 50
+        minScalar: 75
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -6427,8 +6427,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 0.04538286, b: 0, a: 1}
-        key2: {r: 1, g: 0.42050022, b: 0, a: 1}
+        key1: {r: 0.0048570633, g: 0, b: 1, a: 1}
+        key2: {r: 0, g: 0.85568786, b: 1, a: 1}
         key3: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}

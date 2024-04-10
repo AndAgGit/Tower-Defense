@@ -15,7 +15,6 @@ public class CameraMove : MonoBehaviour
     public float minY = 10f;
     public float maxY = 80f;
 
-    private bool canMove = true;
     private float panBorderThiccness;
 
     private void Start()
@@ -28,16 +27,6 @@ public class CameraMove : MonoBehaviour
         if (GameManager.gameIsOver)
         {
             this.enabled = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            canMove = !canMove;
-        }
-
-        if (!canMove)
-        {
-            return;
         }
 
         if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThiccness)
