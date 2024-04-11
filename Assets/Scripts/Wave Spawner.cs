@@ -8,15 +8,27 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves = 5f;
     public Transform spawnPoint;
     public Wave[] waves;
+    public GameManager gameManager;
 
     private static int wave = 0;
     private static float countdown = 2f;
+    private void Awake()
+    {
+        wave = 0;
+    }
     void Update()
     {
         if(enemiesAlive > 0)
         {
             countdown = timeBetweenWaves; ;
             return;
+        }
+
+        if (wave == waves.Length)
+        {
+            Debug.Log("Waves Done");
+            gameManager.WinLevel();
+            this.enabled = false;
         }
 
         if (countdown <= -1f)
@@ -36,6 +48,8 @@ public class WaveSpawner : MonoBehaviour
 
         Wave curWave = waves[wave];
 
+        enemiesAlive = curWave.numToSpawn;
+
         for (int i = 0; i < curWave.numToSpawn; i++)
         {
             SpawnEnemy(curWave.enemyPrefab);
@@ -43,19 +57,12 @@ public class WaveSpawner : MonoBehaviour
         }
 
         wave++;
-
-        if(wave == waves.Length)
-        {
-            Debug.Log("Level Complete");
-            this.enabled = false;
-        }
     }
 
     private void SpawnEnemy(GameObject enemy)
     {
         Vector3 randomSpawn = spawnPoint.position + Vector3.forward * Random.Range(-1f, 1f);
         Instantiate(enemy, randomSpawn, Quaternion.identity);
-        enemiesAlive++;
     }
 
     public static int GetWave()
