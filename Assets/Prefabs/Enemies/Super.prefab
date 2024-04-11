@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 2314109478816338531}
   - component: {fileID: 3706739068157231446}
   m_Layer: 6
-  m_Name: Splitter
+  m_Name: Super
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 696d5e75a86044f4381a67f348ce6642, type: 2}
+  - {fileID: 2100000, guid: f5da0f417721d8b4fb306d9bc1be67bf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,13 +166,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 10
-  maxHealth: 50
-  value: 5
-  isSplitter: 1
-  babyPrefab: {fileID: 8610068105627121444, guid: cb6110268ea4160448af3dac8a8ffad3, type: 3}
+  maxHealth: 5000
+  value: 500
+  isSplitter: 0
+  babyPrefab: {fileID: 0}
   speed: 5
   healthBar: {fileID: 291177984150274599}
-  deathEffect: {fileID: 3668660356176214509, guid: 948eafe37cb48f845828956760abec2d, type: 3}
+  deathEffect: {fileID: 3668660356176214509, guid: 232ec535504d2444486f615fc624233f, type: 3}
 --- !u!114 &3706739068157231446
 MonoBehaviour:
   m_ObjectHideFlags: 0

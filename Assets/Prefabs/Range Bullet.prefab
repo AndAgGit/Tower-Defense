@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   explosionRadius: 0
-  damage: 20
+  damage: 10
   bulletHitEffect: {fileID: 6440764406127722517, guid: c83c34e0dffb85f47bbeca02e474e996, type: 3}
 --- !u!96 &42306380958883379
 TrailRenderer:

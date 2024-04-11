@@ -134,7 +134,7 @@ MonoBehaviour:
   fireRate: 0
   bulletPrefab: {fileID: 0}
   bulletSpawn: {fileID: 4202562979971465179}
-  dps: 45
+  dps: 30
   useLaser: 1
   slowPct: 0.5
   lineRenderer: {fileID: 635790433794275952}

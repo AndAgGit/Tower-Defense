@@ -40,6 +40,17 @@ public class EnemyMovement : MonoBehaviour
         target = Waypoints.waypoints[waypointIndex];
     }
 
+    public void SetWayPointIndex(int i)
+    { 
+        waypointIndex = i;
+        target = Waypoints.waypoints[waypointIndex];
+    }
+
+    public int GetWayPointIndex()
+    {
+        return waypointIndex;
+    }
+
     void PathEnd()
     {
         Destroy(gameObject);
